@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DV odes</title>
+    <style>
+        table, td{
+         border: 2px solid black;
+        }
+    </style>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script> 
+
+       $(document).ready(function(){
+        $.ajax({url: "sample.txt",
+                success: function(data){
+                    var rows = data.split("\r\n");
+                    var html =""      
+
+                    for(let i=0; i< rows.length; i++)
+                    {
+                        html += '<tr>'
+                        var columns = rows[i].split(" ");
+                      
+                        for(let j=0; j< columns.length; j++)
+                        {
+                            html += '<td>' + columns[j] + '</td>';
+                        }
+                        html += '</tr>'
+                    }
+                    $("#output").html(html);
+                }});
+            })
+   </script>
+</head>
+<body>
+    <table id="output"></table>
+</body>
+</html>
