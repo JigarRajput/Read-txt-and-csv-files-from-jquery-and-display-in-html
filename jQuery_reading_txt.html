@@ -15,7 +15,7 @@
    <script> 
 
        $(document).ready(function(){
-        $.ajax({url: "sample.txt",
+        $.ajax({url: "sample.txt", // if you want to parse csv files put the file here with .csv extension
                 success: function(data){
                     var rows = data.split("\r\n");
                     var html =""      
@@ -23,7 +23,7 @@
                     for(let i=0; i< rows.length; i++)
                     {
                         html += '<tr>'
-                        var columns = rows[i].split(" ");
+                        var columns = rows[i].split(" "); // for csv files keep it like .split(",")
                       
                         for(let j=0; j< columns.length; j++)
                         {
